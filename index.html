@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Portfolio Website Design</title>
+    <title>Umesh Ghaskata | AI/Robotics Engineer Portfolio</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="style.css">
-    <!----Font awesome cdn  font icon css -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 </head>
 <body>
-     <div class="hero-header">
+    <div class="hero-header">
         <div class="wrapper">
             <header>
                 <div class="logo">
-                    <i class="fa-solid fa-a"></i>
-                    <div class="logo-text">Alex Smith</div>
+                    <div class="logo-text">Umesh Ghaskata</div>
                 </div>
                 <nav>
                     <div class="togglebtn">
@@ -25,60 +25,258 @@
                     </div>
                     <ul class="navlinks">
                         <li><a href="#">Home</a></li>
-                        <li><a href="#">Portfolio</a></li>
-                        <li><a href="#">Resume</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#education">Education</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
             </header>
+
             <div class="container">
-                 <div class="hero-pic">
-                    <img src="images/main_photo.jpg" alt="profile pic">
-                 </div>
-                 <div class="hero-text">
-                    <h5>Hi I'm <span class="input">Frontend Developer</span></h5>
-                    <h1>Alex Smith</h1>
-                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta delectus dolorum 
-                        quibusdam maiores magni quod rem in porro, laborum, laudantium ex repellendus explicabo, 
-                        autem molestiae!
+                <div class="hero-pic">
+                    <img src="images/IMG_Cropped2.jpg" alt="Umesh profile picture">
+                </div>
+
+                <div class="hero-text">
+                    <h5>Hi, I'm <span class="input">AI Engineer</span></h5>
+                    <h1>Umesh Ghaskata</h1>
+                    <p>Graduate student at University at Buffalo (MS CS), with a background in Aerospace from IIT Bombay. 
+                        Experienced in ML, Robotics, UAV path planning, and Software development. Currently a Research Assistant 
+                        at the Drones Lab working on energy-efficient trajectory generation for autonomous UAVs.
                     </p>
 
                     <div class="btn-group">
-                       <a href="#" class="btn active">Download CV</a>
-                       <a href="#" class="btn">Contact</a>
+                        <a href="Resume_Robotics_Umesh.pdf" class="btn active raise" download>Download CV</a>
+                        <a href="#contact" class="btn raise">Contact</a>
                     </div>
 
                     <div class="social">
-                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#"><i class="fa-brands fa-dribbble"></i></a>
-                        <a href="#"><i class="fa-brands fa-pintrest"></i></a>
-                    </div>
-                 </div>
+                        <a href="https://www.linkedin.com/in/umesh-ghaskata-727884200/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://github.com/Umesh-PersonalID" target="_blank"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://leetcode.com/u/umesh_spike/" target="_blank" class="leetcode-icon" title="LeetCode">
+                          <img src="leetcode.svg" alt="LeetCode" width="26" height="26" />
+                        </a>
+                        
+                      </div>                      
+                </div>
             </div>
         </div>
-     </div>
-     <!---typed js for typing text effect-->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
-     <script>
-        /** creating button click show hide navbar **/
-        var togglebtn=document.querySelector(".togglebtn");
-        var nav=document.querySelector(".navlinks");
-        var links=document.querySelector(".navlinks li");
+        <section id="about" class="about-section">
+            <div class="wrapper">
+              <h2>About Me</h2>
+              <p>
+                I'm <strong>Umesh Ghaskata</strong>, a passionate and highly motivated engineer with a deep interest in <strong>Robotics, Artificial Intelligence, and Machine Learning</strong>. Currently pursuing my Master's in Computer Science at the <strong>University at Buffalo (SUNY)</strong>, I bring a strong academic foundation from my undergraduate years at <strong>IIT Bombay</strong>, where I specialized in Aerospace Engineering.
+              </p>
+          
+              <p>
+                My journey in tech has been shaped by hands-on experience in <strong>autonomous systems, UAV path planning</strong>, and <strong>machine learning model development</strong>. As a Research Assistant at the <strong>Drone Lab</strong>, I work on energy-efficient trajectory optimization using techniques like <em>Graphs of Convex Sets</em>, D-C optimization, and smooth motion planning in cluttered environments.
+              </p>
+          
+              <p>
+                I've built complete AI pipelines — from training deep learning models in PyTorch and TensorFlow, to deploying facial recognition systems with <strong>VGGFace</strong> and <strong>Streamlit</strong>. My interest also extends into classical algorithms, with projects involving <strong>grid-based reinforcement learning, TSP optimization, and computer vision</strong>.
+              </p>
+          
+              <p>
+                My professional experience includes a Software Developer Internship at <strong>Scitara Corporation</strong>, where I streamlined API testing workflows and built scalable mock environments using Docker and RESTful tools.
+              </p>
+          
+              <p>
+                I'm a firm believer in collaborative innovation. At IIT Bombay, I served as the <strong>Technical Convener of the Aeromodelling Club</strong>, delivered aircraft design training, and developed web projects under the <strong>Rocket Team supported by ISRO</strong>.
+              </p>
+          
+              <p>
+                I’m excited to contribute to cutting-edge technologies and continuously evolve as a <strong>problem solver, researcher, and engineer</strong>. Feel free to connect with me on <a href="https://www.linkedin.com/in/umesh-ghaskata-727884200/" target="_blank">LinkedIn</a> or explore more of my work below!
+              </p>
+            </div>
+        </section>          
+        <section id="education" class="education-section">
+            <div class="wrapper">
+              <h2>Education</h2>
+              <div class="timeline">
+                <div class="line"></div>
+                <div class="edu-entry fade-in">
+                  <div class="icon"><i class="fas fa-user-graduate"></i></div>
+                  <div class="content1">
+                    <h3>University at Buffalo, SUNY</h3>
+                    <p><strong>Master of Science (Computer Science)</strong></p>
+                    <p>2024 – 2026 | Buffalo, NY</p>
+                  </div>
+                </div>
+          
+                <div class="edu-entry fade-in">
+                  <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+                  <div class="content1">
+                    <h3>IIT Bombay</h3>
+                    <p><strong>Bachelor of Technology (Aerospace Engineering)</strong></p>
+                    <p>2020 – 2024 | Mumbai, India</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </section> 
+        <section id="experience" class="experience-section">
+            <div class="wrapper">
+              <h2>Experience</h2>
+              <div class="timeline">
+          
+                <!-- Scitara Corporation -->
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content">
+                    <h3>Software Developer Intern</h3>
+                    <p><strong>Scitara Corporation, Mumbai</strong> | Dec 2022 – Feb 2023</p>
+                    <ul>
+                      <li>Created virtual REST API servers to mock backend logic and streamline testing.</li>
+                      <li>Developed JSON-based GET/POST workflows, bypassing credential requirements.</li>
+                      <li>Automated multiple endpoint responses & deployed with Docker CLI.</li>
+                    </ul>
+                  </div>
+                </div>
+          
+                <!-- UAV Spraying Internship -->
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content">
+                    <h3>Summer Research Intern</h3>
+                    <p><strong>IIT Bombay – Systems & Controls</strong> | May 2023 – Aug 2023</p>
+                    <ul>
+                      <li>Designed cost-efficient UAV spraying paths using OpenCV, HSV heatmaps, and TSP.</li>
+                      <li>Implemented A* and Dijkstra simulations to optimize grid-based UAV coverage.</li>
+                    </ul>
+                  </div>
+                </div>
+          
+                <!-- Research Assistant -->
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content">
+                    <h3>Research Assistant – DRONES Lab</h3>
+                    <p><strong>University at Buffalo</strong> | Jan 2025 – Present</p>
+                    <ul>
+                      <li>Working on energy-efficient trajectory generation using Graphs of Convex Sets (GCS).</li>
+                      <li>Integrated D-C optimization and validated models in simulated search environments.</li>
+                    </ul>
+                  </div>
+                </div>
+          
+              </div>
+            </div>
+          </section>
+          
+        <section id="projects" class="projects-section">
+            <div class="wrapper">
+              <h2>Projects</h2>
+              <div class="project-list">
+          
+                <!-- Project 1 -->
+                <div class="hover-underline">
+                <div class="project-card fade-in">
+                    <div class="project-content">
+                      <h3>Autonomous Drone for Search Operations</h3>
+                      <p><strong>IIT Bombay</strong> | <span class="tags">#Drone #ROS #OpenCV</span></p>
+                      <p>
+                        Developed an autonomous drone using <strong>Pixhawk + RPi</strong>, HOG-based detection, and A* algorithm with ultrasonic obstacle avoidance.
+                      </p>
+                      <a href="#" class="btn small">View Code</a>
+                    </div>
+                    <div class="project-img">
+                      <video autoplay muted loop playsinline>
+                        <source src="videos/Drone-Demo.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                  </div>
+                </div>
+                  
+                  
+          
+                <!-- Project 2 -->
+                <div class="hover-underline">
+                <div class="project-card fade-in">
+                    <div class="project-content">
+                      <h3>ML Projects: Logistic Regression, CNNs & RL</h3>
+                      <p><strong>SUNY Buffalo</strong> | <span class="tags">#PyTorch #ReinforcementLearning #CNN</span></p>
+                      <p>
+                        Implemented logistic regression from scratch using gradient descent and L2 regularization. Built and tuned <strong>CNNs and MLPs</strong> in PyTorch with <strong>dropout, batch normalization, LR scheduling</strong>. Designed a <strong>custom RL environment</strong> and trained agents using <strong>SARSA and Double Q-learning</strong>.
+                      </p>
+                      <a href="#" class="btn small">View Code</a>
+                    </div>
+                    <div class="project-img">
+                      <img src="images/ML_Project.avif" alt="ML Projects" />
+                    </div>
+                  </div>                  
+                </div>
+                <!-- Project 3 -->
+                <div class="project-card fade-in">
+                    <div class="project-content">
+                      <h3>Bollywood Celebrity Recognition</h3>
+                      <p><strong>IIT Bombay</strong> | <span class="tags">#TensorFlow #MTCNN #Streamlit</span></p>
+                      <p>
+                        Built a facial recognition app using <strong>VGGFace (ResNet50)</strong> and <strong>MTCNN</strong> for face detection and embedding. Stored 2048-feature vectors using <strong>Pickle</strong>. Deployed a web app using <strong>Streamlit</strong> for real-time celebrity classification.
+                      </p>
+                      <a href="#" class="btn small">View App</a>
+                    </div>
+                    <div class="project-img">
+                      <img src="images/Bollywood_Prediction_cropped.png" alt="Celebrity App" />
+                    </div>
+                  </div>
+                  
+          
+                <!-- Add more projects here... -->
+                <div class="project-card fade-in">
+                    <div class="project-content">
+                      <h3>Coordinated UAVs for Efficient Spraying</h3>
+                      <p><strong>IIT Bombay</strong> | <span class="tags">#AStar #TSP #PathPlanning #OpenCV</span></p>
+                      <p>
+                        Modeled a <strong>2D grid-based spraying path</strong> using OpenCV and HSV heatmaps. Applied <strong>Traveling Salesman Problem</strong> to optimize waypoint sequence and simulated <strong>A*</strong> and <strong>Dijkstra</strong> algorithms for flight efficiency.
+                      </p>
+                      <a href="#" class="btn small">View Report</a>
+                    </div>
+                    <div class="project-img">
+                      <img src="images/Spraying_Drone.webp" alt="UAV Spraying" />
+                    </div>
+                  </div>
 
-        togglebtn.addEventListener("click", function(){
-            this.classList.toggle("click");
-            nav.classList.toggle("open");
-        })
+                  <div class="project-card fade-in">
+                    <div class="project-content">
+                      <h3>Operating Systems Programming</h3>
+                      <p><strong>IIT Bombay</strong> | <span class="tags">#xv6 #Shell #MemoryManagement</span></p>
+                      <p>
+                        Built a Linux shell using <strong>fork(), exec(), wait()</strong> and implemented dynamic memory management in <strong>xv6</strong>. Used <strong>pthreads, mutexes, and semaphores</strong> for multi-threaded synchronization in user-space programs.
+                      </p>
+                      <a href="#" class="btn small">View Code</a>
+                    </div>
+                    <div class="project-img">
+                      <img src="images/terminal.webp" alt="OS Programming" />
+                    </div>
+                  </div>
+                  
+          
+              </div>
+            </div>
+        </section>                                      
+        <section id="contact" class="contact-section">
+            <div class="wrapper">
+                <h2>Contact Me</h2>
+                <form action="https://formspree.io/f/mrbpjzkv" method="POST" class="contact-form">
+                    <input type="text" name="name" placeholder="Your Name" required />
+                    <input type="email" name="email" placeholder="Your Email" required />
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn active">Send Message</button>
+                </form>
+            </div>
+        </section>
+        <footer class="footer">
+          <p>© 2025 Umesh Ghaskata. Built with using HTML, CSS & JS.</p>
+        </footer>
+        
+        
+    </div>
 
-        var typed=new Typed(".input",{
-            strings:["Frontend Developer","UX Designer","Web Developer"],
-            typedSpeed:70,
-            backSpeed:55,
-            loop:true
-        })
-     </script>
+    <!-- Typed.js for typing effect -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
