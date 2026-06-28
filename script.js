@@ -20,7 +20,7 @@ togglebtn.addEventListener("click", function () {
 
 // Typed.js animation
 var typed = new Typed(".input", {
-    strings: ["AI Engineer", "Robotics Researcher", "Software Developer"],
+    strings: ["AI Software Engineer", "Generative AI Engineer", "Full Stack Developer"],
     typeSpeed: 50,
     backSpeed: 55,
     loop: true
