@@ -1,3 +1,8 @@
+// Page load fade-in
+window.addEventListener('load', () => {
+    document.body.classList.add('page-loaded');
+});
+
 // Sticky header
 const header = document.querySelector("header");
 
@@ -7,7 +12,7 @@ window.addEventListener("scroll", () => {
     } else {
         header.classList.remove("sticky-active");
     }
-});
+}, { passive: true });
 
 // Navbar toggle button
 var togglebtn = document.querySelector(".togglebtn");
@@ -64,7 +69,7 @@ videos.forEach(video => {
     });
 });
 
-// Interactive mouse-reactive background
+// Interactive mouse-reactive background (performance-optimized)
 (function initInteractiveBackground() {
     const canvas = document.getElementById('interactive-bg');
     if (!canvas) return;
@@ -76,9 +81,12 @@ videos.forEach(video => {
     let mouse = { x: -1000, y: -1000 };
     let particles = [];
     const isMobile = window.innerWidth < 768;
-    const particleCount = isMobile ? 35 : 70;
+    const particleCount = isMobile ? 22 : 45;
     const connectionDistance = 130;
     const mouseRadius = 160;
+    let lastMouseUpdate = 0;
+    let isVisible = true;
+    let animId = null;
 
     function resize() {
         canvas.width = window.innerWidth;
@@ -95,45 +103,48 @@ videos.forEach(video => {
         }));
     }
 
-    function updateMousePosition(x, y) {
-        mouse.x = x;
-        mouse.y = y;
-        document.documentElement.style.setProperty('--mouse-x', `${x}px`);
-        document.documentElement.style.setProperty('--mouse-y', `${y}px`);
-    }
-
     function animate() {
+        if (!isVisible) {
+            animId = requestAnimationFrame(animate);
+            return;
+        }
+
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        particles.forEach((particle) => {
-            const dx = particle.x - mouse.x;
-            const dy = particle.y - mouse.y;
-            const distance = Math.hypot(dx, dy);
+        for (let i = 0; i < particles.length; i++) {
+            const p = particles[i];
+            const dx = p.x - mouse.x;
+            const dy = p.y - mouse.y;
+            const dist = dx * dx + dy * dy;
+            const mouseR2 = mouseRadius * mouseRadius;
 
-            if (distance < mouseRadius && distance > 0) {
+            if (dist < mouseR2 && dist > 0) {
+                const distance = Math.sqrt(dist);
                 const force = ((mouseRadius - distance) / mouseRadius) * 0.6;
-                particle.vx += (dx / distance) * force;
-                particle.vy += (dy / distance) * force;
+                p.vx += (dx / distance) * force;
+                p.vy += (dy / distance) * force;
             }
 
-            particle.x += particle.vx;
-            particle.y += particle.vy;
-            particle.vx *= 0.98;
-            particle.vy *= 0.98;
+            p.x += p.vx;
+            p.y += p.vy;
+            p.vx *= 0.98;
+            p.vy *= 0.98;
 
-            if (particle.x <= 0 || particle.x >= canvas.width) particle.vx *= -1;
-            if (particle.y <= 0 || particle.y >= canvas.height) particle.vy *= -1;
-            particle.x = Math.max(0, Math.min(canvas.width, particle.x));
-            particle.y = Math.max(0, Math.min(canvas.height, particle.y));
-        });
+            if (p.x <= 0 || p.x >= canvas.width) p.vx *= -1;
+            if (p.y <= 0 || p.y >= canvas.height) p.vy *= -1;
+            p.x = Math.max(0, Math.min(canvas.width, p.x));
+            p.y = Math.max(0, Math.min(canvas.height, p.y));
+        }
 
         for (let i = 0; i < particles.length; i++) {
             for (let j = i + 1; j < particles.length; j++) {
                 const dx = particles[i].x - particles[j].x;
                 const dy = particles[i].y - particles[j].y;
-                const distance = Math.hypot(dx, dy);
+                const dist = dx * dx + dy * dy;
+                const conn2 = connectionDistance * connectionDistance;
 
-                if (distance < connectionDistance) {
+                if (dist < conn2) {
+                    const distance = Math.sqrt(dist);
                     const opacity = 0.18 * (1 - distance / connectionDistance);
                     ctx.strokeStyle = `rgba(0, 124, 237, ${opacity})`;
                     ctx.lineWidth = 0.6;
@@ -151,28 +162,38 @@ videos.forEach(video => {
         ctx.fillStyle = glow;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        particles.forEach((particle) => {
             ctx.fillStyle = 'rgba(88, 170, 255, 0.55)';
+        for (let i = 0; i < particles.length; i++) {
+            const p = particles[i];
             ctx.beginPath();
-            ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+            ctx.arc(p.x, p.y, p.radius, 0, 6.2832);
             ctx.fill();
-        });
+        }
 
-        requestAnimationFrame(animate);
+        animId = requestAnimationFrame(animate);
     }
 
     window.addEventListener('mousemove', (event) => {
-        updateMousePosition(event.clientX, event.clientY);
-    });
+        const now = performance.now();
+        if (now - lastMouseUpdate < 16) return;
+        lastMouseUpdate = now;
+        mouse.x = event.clientX;
+        mouse.y = event.clientY;
+    }, { passive: true });
 
     window.addEventListener('mouseleave', () => {
-        updateMousePosition(-1000, -1000);
+        mouse.x = -1000;
+        mouse.y = -1000;
+    });
+
+    document.addEventListener('visibilitychange', () => {
+        isVisible = !document.hidden;
     });
 
     window.addEventListener('resize', () => {
         resize();
         createParticles();
-    });
+    }, { passive: true });
 
     resize();
     createParticles();
