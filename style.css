@@ -832,6 +832,28 @@ nav .navlinks li a:hover::after {
     margin-bottom: 20px;
 }
 
+.linkedin-badge {
+    display: flex;
+    justify-content: center;
+    max-width: 520px;
+    min-height: 180px;
+    margin: 0 auto 36px;
+    padding: 20px;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    background: var(--bg-card);
+    overflow: hidden;
+}
+
+.linkedin-badge .LI-profile-badge {
+    max-width: 100%;
+}
+
+.linkedin-badge .LI-simple-link {
+    color: var(--accent-light);
+    font-size: 0.9rem;
+}
+
 .contact-form {
     max-width: 600px;
     margin: 0 auto;
