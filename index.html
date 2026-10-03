@@ -16,19 +16,18 @@
   <link rel="icon" type="image/png" href="images/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,200..800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 </head>
 
 <body>
-  <canvas id="interactive-bg" aria-hidden="true"></canvas>
-  <div class="mouse-glow" aria-hidden="true"></div>
+
   <div class="hero-header">
     <div class="wrapper">
       <header>
-        <div class="logo"></div>
+        <div class="logo"><a href="#" style="color: var(--text-primary); font-family: var(--font-heading); font-size: 1.5rem; font-weight: 600;">Umesh G.</a></div>
         <nav>
           <div class="togglebtn">
             <span></span>
@@ -472,22 +471,49 @@
         </div>
       </div>
     </section>
-    <section id="contact" class="contact-section">
-      <div class="wrapper">
-        <h2>Contact Me</h2>
-        <div class="linkedin-badge" aria-label="LinkedIn profile badge">
-          <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="dark"
-            data-type="HORIZONTAL" data-vanity="umesh-ghaskata-727884200" data-version="v1">
-            <a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/umesh-ghaskata-727884200/"
-              target="_blank" rel="noopener noreferrer">View my LinkedIn profile</a>
+    <section id="contact" class="contact-section bake-contact">
+      <div class="wrapper bake-contact-wrapper">
+        <div class="contact-left">
+          <span class="contact-accent">Contact</span>
+          <h2>Get in touch.</h2>
+          <p class="contact-lead">Tell us what you're building and where you want to go next.</p>
+          <div class="contact-email-section">
+            <p>Prefer email?</p>
+            <a href="mailto:umeshghaskata@gmail.com" class="email-link">umeshghaskata@gmail.com <span>▶</span></a>
           </div>
+          
+          </div>
+        
+        <div class="contact-right">
+          <h3>Start a conversation.</h3>
+          <p class="required-note">Fields marked * are required.</p>
+          <form action="https://formspree.io/f/mrbpjzkv" method="POST" class="contact-form-bake">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Email *</label>
+                <input type="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label>Name *</label>
+                <input type="text" name="name" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Role <span class="optional">Optional</span></label>
+                <input type="text" name="role" />
+              </div>
+              <div class="form-group"></div>
+            </div>
+            <div class="form-group">
+              <label>What's in your mind? *</label>
+              <textarea name="message" rows="5" required></textarea>
+            </div>
+            <div class="form-submit">
+              <button type="submit" class="btn active">Submit</button>
+            </div>
+          </form>
         </div>
-        <form action="https://formspree.io/f/mrbpjzkv" method="POST" class="contact-form">
-          <input type="text" name="name" placeholder="Your Name" required />
-          <input type="email" name="email" placeholder="Your Email" required />
-          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-          <button type="submit" class="btn active">Send Message</button>
-        </form>
       </div>
     </section>
     <footer class="footer">
