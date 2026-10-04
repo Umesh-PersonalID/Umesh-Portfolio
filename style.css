@@ -473,9 +473,59 @@ nav .navlinks li a:hover::after {
     padding: 100px 24px;
 }
 
+.about-content {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-skills {
+    flex: 0 0 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.about-skills h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+}
+
+.about-skills .mt-4 {
+    margin-top: 35px;
+}
+
+.skill-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.skill-icons img {
+    max-width: 100%;
+    height: auto;
+}
+
+.ai-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.ai-badges img {
+    height: 28px;
+}
+
 .about-section p {
-    max-width: 800px;
-    margin: 0 auto 16px;
+    margin: 0 0 16px;
     line-height: 1.85;
     font-size: 1.05rem;
     color: var(--text-secondary);
@@ -495,6 +545,37 @@ nav .navlinks li a:hover::after {
 .about-section a:hover {
     color: var(--accent);
     border-bottom-color: var(--accent);
+}
+
+@media (max-width: 1024px) {
+    .about-content {
+        gap: 30px;
+    }
+    .about-skills {
+        flex: 0 0 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .about-skills {
+        flex: auto;
+        width: 100%;
+        align-items: center;
+    }
+    .about-skills h3 {
+        text-align: center;
+        width: 100%;
+    }
+    .skill-icons {
+        align-items: center;
+    }
+    .ai-badges {
+        justify-content: center;
+    }
 }
 
 /* ---------- Education Section ---------- */
