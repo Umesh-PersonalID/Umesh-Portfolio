@@ -207,3 +207,31 @@ videos.forEach(video => {
     createParticles();
     animate();
 })();
+// Theme toggle logic
+const themeToggleBtn = document.getElementById('theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
+
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    if (currentTheme === 'light') {
+        themeIcon.className = 'fa-regular fa-moon';
+    } else {
+        themeIcon.className = 'fa-solid fa-circle-half-stroke';
+    }
+} else {
+    themeIcon.className = 'fa-solid fa-circle-half-stroke';
+}
+
+themeToggleBtn.addEventListener('click', () => {
+    let theme = document.documentElement.getAttribute('data-theme');
+    if (theme === 'light') {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'dark');
+        themeIcon.className = 'fa-solid fa-circle-half-stroke';
+    } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        themeIcon.className = 'fa-regular fa-moon';
+    }
+});
