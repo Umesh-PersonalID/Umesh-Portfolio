@@ -47,6 +47,7 @@
 
 html {
     scroll-behavior: auto;
+    overflow-x: hidden;
 }
 
 body {
@@ -160,8 +161,9 @@ nav .togglebtn {
     width: 35px;
     height: 35px;
     position: absolute;
-    top: 42px;
-    right: 3%;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 5%;
     z-index: 5;
     cursor: pointer;
     display: none;
@@ -959,27 +961,26 @@ nav .navlinks li a:hover::after {
 
     .click span {
         position: absolute;
-        margin-top: 12px;
+        margin: 0 !important;
     }
 
     .click span:first-child {
-        transform: rotate(-40deg);
+        transform: rotate(-45deg);
     }
 
     .click span:nth-child(2) {
         opacity: 0;
-        margin: 0;
     }
 
     .click span:last-child {
         transform: rotate(45deg);
-        top: 0;
     }
 
     nav .navlinks {
         position: absolute;
         top: 100%;
-        right: -100%;
+        right: 0;
+        transform: translateX(100%);
         width: 60%;
         min-height: 100vh;
         background: rgba(10, 10, 10, 0.97);
@@ -988,6 +989,8 @@ nav .navlinks li a:hover::after {
         transition: var(--transition-slow);
         padding: 30px 0;
         border-left: 1px solid var(--glass-border);
+        flex-direction: column;
+        align-items: stretch;
     }
 
     nav .navlinks li {
@@ -1007,7 +1010,7 @@ nav .navlinks li a:hover::after {
     }
 
     nav .navlinks.open {
-        right: 0;
+        transform: translateX(0);
     }
 }
 
@@ -1018,6 +1021,23 @@ nav .navlinks li a:hover::after {
         padding: 7rem 1.5rem 5rem;
         text-align: center;
         gap: 40px;
+    }
+
+    .about-section,
+    .education-section,
+    .experience-section,
+    .projects-section,
+    .contact-section {
+        padding: 60px 16px;
+    }
+
+    .about-section h2,
+    .education-section h2,
+    .experience-section h2,
+    .projects-section h2,
+    .contact-section h2 {
+        font-size: 1.7rem;
+        margin-bottom: 30px;
     }
 
     .hero-text {
@@ -1056,36 +1076,12 @@ nav .navlinks li a:hover::after {
         max-width: 280px;
     }
 
-    .btn-group 
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 28px;
-    font-size: 0.92rem;
-    font-weight: 500;
-    font-family: inherit;
-    border-radius: var(--radius-full);
-    border: 1px solid var(--glass-border);
-    background: transparent;
-    color: var(--text-primary);
-    cursor: pointer;
-    transition: var(--transition-med);
-    letter-spacing: 0.3px;
-}
-.btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-}
-.btn.active {
-    background: var(--accent);
-    border-color: transparent;
-    color: #1a1915;
-}
-.btn.active:hover {
-    background: var(--accent-light);
-}
-.btn.small {
+    .btn-group .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .btn.small {
         padding: 10px 16px;
         font-size: 0.8rem;
     }
@@ -1095,6 +1091,14 @@ nav .navlinks li a:hover::after {
         align-items: center;
         text-align: center;
         padding: 24px 18px;
+    }
+
+    .education-section .timeline .line {
+        display: none;
+    }
+
+    .education-section .timeline {
+        padding-left: 0;
     }
 
     .content1 {
@@ -1137,6 +1141,21 @@ nav .navlinks li a:hover::after {
     .contact-form textarea {
         padding: 12px 14px;
         font-size: 16px;
+    }
+
+    .project-card {
+        flex-direction: column-reverse;
+        padding: 24px 16px;
+        gap: 20px;
+    }
+
+    .project-content, .project-img {
+        flex: 1 1 100%;
+        text-align: center;
+    }
+
+    .project-img img, .project-img video {
+        max-width: 100%;
     }
 
     .footer {
@@ -1221,6 +1240,16 @@ nav .navlinks li a:hover::after {
 @media (max-width: 850px) {
     .bake-contact-wrapper {
         grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .bake-contact {
+        padding: 60px 16px;
+    }
+    .contact-left h2 {
+        font-size: 3rem;
+    }
+    .contact-right {
+        padding: 30px 20px;
     }
 }
 .contact-left {

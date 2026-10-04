@@ -17,10 +17,18 @@ window.addEventListener("scroll", () => {
 // Navbar toggle button
 var togglebtn = document.querySelector(".togglebtn");
 var nav = document.querySelector(".navlinks");
+var navlinks = document.querySelectorAll(".navlinks li a");
 
 togglebtn.addEventListener("click", function () {
     this.classList.toggle("click");
     nav.classList.toggle("open");
+});
+
+navlinks.forEach(link => {
+    link.addEventListener("click", () => {
+        togglebtn.classList.remove("click");
+        nav.classList.remove("open");
+    });
 });
 
 // Typed.js animation
