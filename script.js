@@ -31,6 +31,16 @@ navlinks.forEach(link => {
     });
 });
 
+// Close mobile navigation when tapping outside
+document.addEventListener("click", (e) => {
+    if (nav && togglebtn && nav.classList.contains("open")) {
+        if (!nav.contains(e.target) && !togglebtn.contains(e.target)) {
+            togglebtn.classList.remove("click");
+            nav.classList.remove("open");
+        }
+    }
+});
+
 // Typed.js animation
 var typed = new Typed(".input", {
     strings: ["AI Software Engineer", "Generative AI Engineer", "Full Stack Developer"],
@@ -74,6 +84,14 @@ videos.forEach(video => {
     video.addEventListener('mouseleave', () => {
         video.pause();
         video.currentTime = 0;
+    });
+    // Support touch devices (tap to play/pause)
+    video.addEventListener('click', () => {
+        if (video.paused) {
+            video.play();
+        } else {
+            video.pause();
+        }
     });
 });
 

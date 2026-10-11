@@ -66,7 +66,8 @@
 }
 
 html {
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
+    scroll-padding-top: 75px;
     overflow-x: hidden;
 }
 
@@ -124,12 +125,11 @@ body {
 
 /* ---------- Header / Navbar ---------- */
 header {
-    padding: 12px 0;
+    padding: 12px 24px;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
     position: sticky;
     top: 0;
     background-color: var(--header-bg);
@@ -156,7 +156,7 @@ header.sticky-active {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    padding-left: 20px;
+    padding-left: 0;
 }
 
 .logo i {
@@ -180,10 +180,7 @@ header.sticky-active {
 nav .togglebtn {
     width: 35px;
     height: 35px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 5%;
+    position: relative;
     z-index: 5;
     cursor: pointer;
     display: none;
@@ -205,7 +202,7 @@ nav .navlinks {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding-right: 20px;
+    padding-right: 0;
 }
 
 nav .navlinks li {
@@ -259,7 +256,7 @@ nav .navlinks li a:hover::after {
 }
 
 /* ---------- Profile Picture ---------- */
-.container .hero-pic {
+.hero-pic {
     width: 260px;
     height: 260px;
     border-radius: 50%;
@@ -388,10 +385,14 @@ nav .navlinks li a:hover::after {
 .btn.small {
     padding: 8px 20px;
     font-size: 0.82rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4px 4px 4px 0;
 }
 
 .btn.small + .btn.small {
-    margin-left: 8px;
+    margin-left: 4px;
 }
 
 /* ---------- Social Icons ---------- */
@@ -887,6 +888,8 @@ nav .navlinks li a:hover::after {
     font-size: 0.78rem;
     color: var(--accent);
     letter-spacing: 0.5px;
+    word-break: break-word;
+    overflow-wrap: anywhere;
 }
 
 .project-img-placeholder {
@@ -1053,11 +1056,32 @@ nav .navlinks li a:hover::after {
 
 /* Tablet & below */
 @media (max-width: 930px) {
+    header {
+        padding: 12px 18px;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
     nav .togglebtn {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        order: 2;
+        position: relative;
+        top: auto;
+        right: auto;
+        transform: none;
+    }
+
+    .theme-toggle {
+        order: 1;
+        position: relative;
+        top: auto;
+        right: auto;
+        transform: none;
     }
 
     .click span {
@@ -1078,20 +1102,26 @@ nav .navlinks li a:hover::after {
     }
 
     nav .navlinks {
-        position: absolute;
-        top: 100%;
+        position: fixed;
+        top: 61px;
         right: 0;
         transform: translateX(100%);
-        width: 60%;
-        min-height: 100vh;
-        background: rgba(10, 10, 10, 0.97);
-        z-index: 3;
-        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.3);
-        transition: var(--transition-slow);
-        padding: 30px 0;
+        width: min(300px, 82vw);
+        height: calc(100dvh - 61px);
+        max-height: calc(100vh - 61px);
+        background: var(--header-bg-sticky);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        z-index: 1001;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.4);
+        transition: transform var(--transition-med), visibility var(--transition-med);
+        padding: 24px 16px;
         border-left: 1px solid var(--glass-border);
         flex-direction: column;
         align-items: stretch;
+        visibility: hidden;
+        pointer-events: none;
+        overflow-y: auto;
     }
 
     nav .navlinks li {
@@ -1099,19 +1129,28 @@ nav .navlinks li a:hover::after {
     }
 
     nav .navlinks li a {
-        display: block;
-        margin-bottom: 8px;
-        text-align: center;
-        padding: 14px 20px;
-        border-radius: 0;
-        min-height: 48px;
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-bottom: 8px;
+        text-align: center;
+        padding: 14px 20px;
+        border-radius: var(--radius-sm);
+        min-height: 48px;
+        color: var(--text-primary);
+        font-size: 1rem;
+    }
+
+    nav .navlinks li a:hover,
+    nav .navlinks li a:active {
+        background: var(--bg-card);
+        color: var(--accent);
     }
 
     nav .navlinks.open {
         transform: translateX(0);
+        visibility: visible;
+        pointer-events: auto;
     }
 }
 
@@ -1119,9 +1158,9 @@ nav .navlinks li a:hover::after {
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
-        padding: 7rem 1.5rem 5rem;
+        padding: 4.5rem 1.25rem 3.5rem;
         text-align: center;
-        gap: 40px;
+        gap: 32px;
     }
 
     .about-section,
@@ -1147,9 +1186,9 @@ nav .navlinks li a:hover::after {
     }
 
     .hero-text h1 {
-    font-family: var(--font-heading);
-    font-weight: 400;
-        font-size: 2rem;
+        font-family: var(--font-heading);
+        font-weight: 400;
+        font-size: 2.2rem;
     }
 
     .hero-text h5 {
@@ -1161,7 +1200,7 @@ nav .navlinks li a:hover::after {
     }
 
     .hero-text p {
-        font-size: 0.9rem;
+        font-size: 0.92rem;
         line-height: 1.7;
     }
 
@@ -1175,6 +1214,8 @@ nav .navlinks li a:hover::after {
         align-items: center;
         width: 100%;
         max-width: 280px;
+        margin: 28px 0;
+        gap: 12px;
     }
 
     .btn-group .btn {
@@ -1183,8 +1224,9 @@ nav .navlinks li a:hover::after {
     }
 
     .btn.small {
-        padding: 10px 16px;
-        font-size: 0.8rem;
+        padding: 9px 16px;
+        font-size: 0.82rem;
+        margin: 4px;
     }
 
     .edu-entry {
@@ -1207,7 +1249,7 @@ nav .navlinks li a:hover::after {
     }
 
     .timeline-content {
-        padding: 18px;
+        padding: 18px 16px;
     }
 
     .timeline-content h3 {
@@ -1219,23 +1261,28 @@ nav .navlinks li a:hover::after {
     }
 
     .timeline-content ul {
+        padding-left: 10px;
         font-size: 0.85rem;
     }
 
+    .timeline-content ul li {
+        padding-left: 12px;
+    }
+
     .experience-section .timeline {
-        padding-left: 16px;
+        padding-left: 14px;
         border-left-width: 2px;
     }
 
     .timeline-item {
-        padding-left: 20px;
-        margin-bottom: 28px;
+        padding-left: 16px;
+        margin-bottom: 24px;
     }
 
     .timeline-dot {
-        width: 14px;
-        height: 14px;
-        left: -9px;
+        width: 12px;
+        height: 12px;
+        left: -8px;
     }
 
     .contact-form input,
@@ -1246,17 +1293,29 @@ nav .navlinks li a:hover::after {
 
     .project-card {
         flex-direction: column-reverse;
-        padding: 24px 16px;
+        padding: 22px 16px;
         gap: 20px;
     }
 
-    .project-content, .project-img {
+    .project-content {
+        flex: 1 1 100%;
+        text-align: left;
+    }
+
+    .project-content h3 {
+        font-size: 1.25rem;
+    }
+
+    .project-img {
         flex: 1 1 100%;
         text-align: center;
+        display: flex;
+        justify-content: center;
     }
 
     .project-img img, .project-img video {
         max-width: 100%;
+        width: 100%;
     }
 
     .footer {
@@ -1268,13 +1327,13 @@ nav .navlinks li a:hover::after {
 /* Very small phones (iPhone SE, 320px) */
 @media (max-width: 380px) {
     .container {
-        padding: 6rem 1rem 4rem;
+        padding: 4rem 1rem 3rem;
     }
 
     .hero-text h1 {
-    font-family: var(--font-heading);
-    font-weight: 400;
-        font-size: 1.7rem;
+        font-family: var(--font-heading);
+        font-weight: 400;
+        font-size: 1.75rem;
     }
 
     .hero-text h5 span {
@@ -1282,7 +1341,7 @@ nav .navlinks li a:hover::after {
     }
 
     .hero-text p {
-        font-size: 0.82rem;
+        font-size: 0.85rem;
     }
 
     .hero-pic {
@@ -1295,33 +1354,33 @@ nav .navlinks li a:hover::after {
     .experience-section h2,
     .projects-section h2,
     .contact-section h2 {
-    font-family: var(--font-heading);
-    font-weight: 400;
+        font-family: var(--font-heading);
+        font-weight: 400;
         font-size: 1.4rem;
     }
 
     .project-card {
-        padding: 18px 14px;
+        padding: 16px 12px;
     }
 
     .project-content h3 {
-        font-size: 1.15rem;
+        font-size: 1.12rem;
     }
 
     nav .navlinks {
-        width: 75%;
+        width: 90vw;
     }
 }
 
 /* Landscape phones */
 @media (max-width: 768px) and (orientation: landscape) {
     .container {
-        padding: 5rem 1.5rem 3rem;
+        padding: 4rem 1.5rem 2.5rem;
     }
 
     .hero-pic {
-        width: 120px;
-        height: 120px;
+        width: 130px;
+        height: 130px;
     }
 }
 
@@ -1341,17 +1400,31 @@ nav .navlinks li a:hover::after {
 @media (max-width: 850px) {
     .bake-contact-wrapper {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 36px;
     }
     .bake-contact {
         padding: 60px 16px;
     }
     .contact-left h2 {
-        font-size: 3rem;
+        font-size: clamp(2.2rem, 7vw, 3rem);
+    }
+    .contact-lead {
+        font-size: 1.2rem;
+    }
+    .contact-sub {
+        font-size: 0.95rem;
+        margin-bottom: 30px;
     }
     .contact-right {
-        padding: 30px 20px;
+        padding: 26px 18px;
     }
+    .contact-right h3 {
+        font-size: 1.8rem;
+    }
+}
+
+.form-group:empty {
+    display: none;
 }
 .contact-left {
     padding-top: 20px;
@@ -1504,13 +1577,4 @@ nav {
     background: var(--bg-card);
     color: var(--accent);
     border-color: var(--accent);
-}
-
-@media (max-width: 930px) {
-    .theme-toggle {
-        position: absolute;
-        right: calc(5% + 45px);
-        top: 50%;
-        transform: translateY(-50%);
-    }
 }
